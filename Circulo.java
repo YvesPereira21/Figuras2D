@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Circulo implements Figuras2D{
     private double raio;
 
@@ -5,7 +7,7 @@ public class Circulo implements Figuras2D{
         this.raio = raio;
     }
     @Override
-    public double area() {
+    public Double area() {
         return Math.PI * raio * raio;
     }
 
@@ -20,7 +22,13 @@ public class Circulo implements Figuras2D{
     }
 
     @Override
-    public int compareTo(Figuras2D o) {
-        return 0;
+    public int compareTo(Figuras2D f) {
+        return this.area().compareTo(f.area());
+    }
+    
+    public static Circulo brincaCirculo(int valMax){
+        Random randomiza = new Random();
+        int valorRandomiza = randomiza.nextInt(valMax);
+        return new Circulo(valorRandomiza);
     }
 }
